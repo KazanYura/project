@@ -34,10 +34,6 @@ class CustomView extends React.Component{
             editableDateInputs={true}
             onChange={(range) => {this.handleSelect(range)}}
           />
-          <Checkbox
-            value="checkedA"
-            inputProps={{ 'aria-label': 'Checkbox A' }}
-          />
             <div id='chart_holder'>
               <CustomLineChart/>
               </div>
