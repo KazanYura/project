@@ -38,10 +38,10 @@ class MyPieChart extends React.Component{
             { name: 'Pumped Hydro', value: t_pumped_hydro }
           ];
         return(                
-        <PieChart width={1600} height={600}>
+        <PieChart width={1200} height={600}>
             <Pie
                 data={data01}
-                cx={800}
+                cx={600}
                 cy={300}
                 labelLine={false}
                 label={renderCustomizedLabel}

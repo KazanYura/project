@@ -1,21 +1,49 @@
 import React from "react";
+import { DateRangePicker } from 'react-date-range';
+import CustomLineChart from '../charts/CustomLineChart';
+import CustomBarChart from '../charts/CustomBarChart';
+
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+
 
 class CustomView extends React.Component{
 
+    handleSelect(range){
+        let text_end_date = range.selection.endDate.getFullYear() + "-" + range.selection.endDate.getMonth() + 1 + '-' + range.selection.endDate.getDate();
+        localStorage.setItem("endDate",text_end_date);
+        let text_start_date = range.selection.startDate.getFullYear() + "-" + range.selection.startDate.getMonth() + 1 + '-' + range.selection.startDate.getDate();
+        localStorage.setItem("startDate",text_start_date);
+        this.setState({ state: this.state });
+    }
+
     render(){
+      const selectionRange = {
+        startDate: new Date("2014-01-01"),
+        endDate: new Date("2014-01-01"),
+        key: 'selection',
+      }
       return(
         <div id="main_body">
-          <h1>Hello world!</h1>
-          <h3>Enter date in order to get map according to that date</h3>
-          <h3>Description:</h3>
-          <p>We have two main parameters in this data piece. 
-            So I would like to separate them to save as big an amount of information as possible. 
-            The first variant was to show each country separately and after that manipulate with the date. 
-            But this variant won't allow us to compare the information. 
-            So I choose the second variant. 
-            Here you can choose a date and get all maps according to that date. 
-            This saves as much info as the previous case but allows us to compare it.</p>
-          <p>Made by Yurii Kazan</p>
+          <h3>This section wouldn't have any analytics. This is just for deeper understanding</h3>
+          <DateRangePicker
+            minDate = {new Date("2014-01-01")}
+            maxDate = {new Date("2020-03-10")}
+            shownDate = {new Date("2014-01-01")}
+            ranges={[selectionRange]}
+            editableDateInputs={true}
+            onChange={(range) => {this.handleSelect(range)}}
+          />
+          <Checkbox
+            value="checkedA"
+            inputProps={{ 'aria-label': 'Checkbox A' }}
+          />
+            <div id='chart_holder'>
+              <CustomLineChart/>
+              </div>
+                <div id='chart_holder'>
+                    <CustomBarChart></CustomBarChart>
+                </div>
         </div>)
     }
 }

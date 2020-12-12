@@ -1,22 +1,50 @@
 import React from "react";
+import MyDailyLineChart from '../charts/MyDailyLineChart';
+
+import MyDailyBarChart from '../charts/MyDailyBarChart';
+
+import '../style/views.css';
 
 class DailyView extends React.Component{
 
     render(){
         return(
-    <div id="main_body">
-      <h1>COVID-19 M213123ap</h1>
-      <h3>Enter date in order to get map according to that date</h3>
-      <h3>Description:</h3>
-      <p>We have two main parameters in this data piece. 
-        So I would like to separate them to save as big an amount of information as possible. 
-        The first variant was to show each country separately and after that manipulate with the date. 
-        But this variant won't allow us to compare the information. 
-        So I choose the second variant. 
-        Here you can choose a date and get all maps according to that date. 
-        This saves as much info as the previous case but allows us to compare it.</p>
-      <p>Made by Yurii Kazan</p>
-    </div>)
+            <div id="main_body">
+                <div id='chart_holder'>
+                    <MyDailyLineChart/>
+                    <div id='analysis'>
+                        <h3>Comment:</h3>
+                        <p>This chart is pretty similar to coresponding one on Global page. From here we can see that the biggest amount of energy is consumed during from 19 to 22 hours, 
+                            The smallest amount is from 4 to 6.
+                        </p>
+                    </div>
+                </div>
+                <div id='chart_holder'>
+                    <MyDailyBarChart/>
+                    <div id='analysis'>
+                        <h3>Comment:</h3>
+                        <p>This chart shows us next data:</p>
+                        <ol>
+                            <li>
+                                Nuclear energy is always const
+                            </li>
+                            <li>
+                                Heat Power energy is almost the same (se time from 00 to 08)
+                            </li>
+                            <li>
+                                Thermal energy is const
+                            </li>
+                            <li>
+                                Pumped Hydro starts working at 10 and finish at 00
+                            </li>
+                            <li>
+                                Hydro is almost the same as Pumped Hydro
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>)
     }
 }
 export default DailyView;

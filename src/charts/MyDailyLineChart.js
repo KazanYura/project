@@ -7,32 +7,41 @@ import { Line,
          YAxis,
          Legend } from 'recharts';
 
-let mountToNamesDict = {1 : "Jan", 2 : "Feb", 3 : "Mar", 4 : "Apr", 5: "May", 6 : "Jun", 7 : "Jul", 8 : "Aug", 9 : "Sep", 10 : "Oct", 11 : "Nov", 12 : "Dec"};
-
 let t_production = 0,t_consuming = 0;
-class MyLineChart extends React.Component{
+class MyDailyLineChart extends React.Component{
     render(){
       let data = [];
-      let current_date;
+      let founded = false;
+      let current_time;
+      let counter = 1;
         let data_import = JSON.parse(localStorage.getItem('data'));
         Object.entries(data_import).forEach(element => {
-          if (!current_date){
-            current_date = element[1][0].split(' ')[0].split('.')[1] + '.' + element[1][0].split(' ')[0].split('.')[2];
-          }
-          if (element[1][0].split(' ')[0].split('.')[1] + '.' + element[1][0].split(' ')[0].split('.')[2] !== current_date){
-            let text_date = mountToNamesDict[parseInt(current_date.split('.')[0])] + " " + current_date.split('.')[1]
-            data.push({name: text_date,Consuming:t_consuming,Production:t_production});
-            t_production = 0;
-            t_consuming = 0;
-            current_date = element[1][0].split(' ')[0].split('.')[1] + '.' + element[1][0].split(' ')[0].split('.')[2];
-          }
-          else {
             t_production += parseInt(element[1][1]) + parseInt(element[1][2]) + parseInt(element[1][3]) + parseInt(element[1][4]) + parseInt(element[1][5]) + parseInt(element[1][6]);
             t_consuming += parseInt(element[1][7]);
+            for (let i = 0; i < data.length; i++){
+                if (data[i].name === current_time){
+                    data[i].Consuming += t_consuming;
+                    counter += 1;
+                    data[i].Production += t_production;
+                    founded = true;
+                    break;
+                }
+            }
+            if (!founded)
+                    data.push({name: current_time,Consuming:t_consuming,Production:t_production});
+                t_production = 0;
+                t_consuming = 0;
+                founded = false;
+                current_time = element[1][0].split(' ')[1].split(':')[0];
           }
-      });
+      );
+
       data = data.reverse();
-      data.pop();
+      data.pop()
+      for (let i = 0; i < data.length; i++){
+        data[i].Consuming /= counter;
+        data[i].Production /= counter;
+      }
         return(
             <LineChart
                     width={1200}
@@ -51,6 +60,6 @@ class MyLineChart extends React.Component{
                     <Line type="monotone" dataKey="Production" stroke="#82ca9d" />
             </LineChart>
         )
-    }
 }
-export default MyLineChart;
+}
+export default MyDailyLineChart;

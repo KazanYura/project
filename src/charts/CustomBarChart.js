@@ -15,16 +15,20 @@ let mountToNamesDict = {1 : "Jan", 2 : "Feb", 3 : "Mar", 4 : "Apr", 5: "May", 6 
 let t_nuclear = 0,t_thermal = 0,t_renewable = 0,t_heat_power = 0,t_hydro = 0,t_pumped_hydro  = 0;
 class MyBarChart extends React.Component{
     render(){
+        let endDate = new Date(localStorage.getItem('endDate'));
+        let startDate = new Date(localStorage.getItem('startDate'));
       let data = [];
       let current_date;
         let data_import = JSON.parse(localStorage.getItem('data'));
         Object.entries(data_import).forEach(element => {
-          if (!current_date){
-            current_date = element[1][0].split(' ')[0].split('.')[1] + '.' + element[1][0].split(' ')[0].split('.')[2];
-          }
-          if (element[1][0].split(' ')[0].split('.')[1] + '.' + element[1][0].split(' ')[0].split('.')[2] !== current_date){
-            let text_date = mountToNamesDict[parseInt(current_date.split('.')[0])] + " " + current_date.split('.')[1]
-            data.push({name: text_date,
+        let d = new Date(element[1][0].split(' ')[0].split('.')[2] + '-' + element[1][0].split(' ')[0].split('.')[1] + '-' + element[1][0].split(' ')[0].split('.')[0]);
+        if ((d.getTime() > startDate.getTime()) && (d.getTime() < endDate.getTime())){
+            if (!current_date){
+                current_date = element[1][0].split(' ')[0].split('.')[2] + '-' + element[1][0].split(' ')[0].split('.')[1] + '-' + element[1][0].split(' ')[0].split('.')[0];
+              }
+              if (element[1][0].split(' ')[0].split('.')[2] + '-' + element[1][0].split(' ')[0].split('.')[1] + '-' + element[1][0].split(' ')[0].split('.')[0] !== current_date){
+                let text_date = current_date.split('-')[2] + " " + mountToNamesDict[parseInt(current_date.split('-')[1])] + " " + current_date.split('-')[0]
+                data.push({name: text_date,
                        Nuclear:t_nuclear,
                        Thermal:t_thermal,
                        Renewable:t_renewable,
@@ -37,7 +41,7 @@ class MyBarChart extends React.Component{
             t_heat_power = 0;
             t_hydro = 0;
             t_pumped_hydro  = 0;
-            current_date = element[1][0].split(' ')[0].split('.')[1] + '.' + element[1][0].split(' ')[0].split('.')[2];
+            current_date = element[1][0].split(' ')[0].split('.')[2] + '-' + element[1][0].split(' ')[0].split('.')[1] + '-' + element[1][0].split(' ')[0].split('.')[0];
           }
           else {
             t_nuclear += parseInt(element[1][1]);
@@ -47,7 +51,8 @@ class MyBarChart extends React.Component{
             t_hydro += parseInt(element[1][5]);
             t_pumped_hydro += parseInt(element[1][6]);
           }
-      });
+      }
+    });
       data = data.reverse();
       data.pop();
         return (

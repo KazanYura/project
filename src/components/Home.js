@@ -1,5 +1,5 @@
 import React from "react";
-import '../home.css';
+import '../style/home.css';
 class Home extends React.Component{
 
     render(){
@@ -19,7 +19,7 @@ class Home extends React.Component{
           <li>Hours of producing for each energy.</li>
           <li>The total amount of produced and consumed energy.</li>
         </ol>
-        <p>You could define time limits and energy type and see a plot as you wish on the <strong>"Custom page"</strong>.</p>
+        <p>You could define time limits and see a plot as you wish on the <strong>"Custom page"</strong>.</p>
       <p><strong>Author: Yurii Kazan</strong></p>
     </div>)
     }
