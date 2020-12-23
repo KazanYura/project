@@ -5,22 +5,20 @@ class Home extends React.Component{
     render(){
         return(
     <div id="main_body">
-      <h1>Description:</h1>
-      <p>We have a <strong>"Global page"</strong> which contains visualization and plots with general information such as</p>
+      <h1>Опис:</h1>
+      <p>Цей сайт був розроблений,як виконання практичної 3 та 4 з курсу "Візуалізація данних". 
+        Відповідно до цього він поділений на сторінки ("Практична 3" та "Практична 4").
+        Кожна із них теж має свій поділ для збереження максимальної зрозумілості та зменшення густини інформації.
+      </p>
+      <p>Сторінка <strong>"Практична 3"</strong> містить підсторінки,що відповідають на питання практичної,а саме:</p>
         <ol>
-          <li>Diagram about how much energy of each type was developed from 2014.</li>
-          <li>The plot which shows statistic per each energy source.</li>
-          <li>Percentage changes.</li>
-          <li>Plot with consumed and produced energy in order to show energy losses.</li>
+          <li>Домінантна релігія у 2010 році за країнами світу.</li>
+          <li>Різниця між кількістю християн у 2010 та 2050 роках за країнами світу.</li>
+          <li>Кількість людей, не афілійованих з жодною релігією у 2010 році за країнами світу</li>
+          <li>Частка мусульман у 2010 році за країнами світу</li>
         </ol>
-        We have a <strong>"Daily page"</strong> which contains information about each day separately in order to prevent some information loss.
-        On this page you can see:
-        <ol>
-          <li>Hours of producing for each energy.</li>
-          <li>The total amount of produced and consumed energy.</li>
-        </ol>
-        <p>You could define time limits and see a plot as you wish on the <strong>"Custom page"</strong>.</p>
-      <p><strong>Author: Yurii Kazan</strong></p>
+        <p>Біля кожної карти можна побачити пояснення її використання та аналіз отриманих результатів</p>
+      <p><strong>Автор: Казан Юрій</strong></p>
     </div>)
     }
 }

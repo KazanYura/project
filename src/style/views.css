@@ -4,3 +4,8 @@
 #analysis {
     text-align: center;
 }
+.cube {
+    align-content: center;
+    width: 1000px; 
+    height: 800px;
+}
