@@ -1,8 +1,8 @@
 {
-  "name": "practice2",
+  "name": "practice3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kazanyura.github.io/practice2/",
+  "homepage": "https://kazanyura.github.io/practice3/",
   "dependencies": {
     "@material/react-checkbox": "^0.15.0",
     "@svg-maps/world": "^1.0.1",
