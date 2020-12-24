@@ -1,9 +1,7 @@
 import React from 'react';
 import MapChart from '../charts/MapChart';
 import ReactTooltip from "react-tooltip";
-import { LegendThreshold } from '@vx/legend';
 import '../style/views.css';
-import {scaleQuantize} from 'd3-scale';
 class DominantReligion extends React.Component{
     state = {
         content: ""

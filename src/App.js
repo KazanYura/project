@@ -12,6 +12,7 @@ import { csv } from "d3-fetch";
 import ChristChange from './components/ChristChange'
 import MuslimsPage from "./components/Muslims";
 import UnaffiliatedPage from "./components/Unaffiliated";
+import CustomComponent from "./components/CustomComp";
 
 let old_keys = ["Year","Country","Christians","Muslims","Unaffiliated","Hindus","Buddhists","Folk Religions","Other Religions","Jews","All Religions"]
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <li><NavLink to="/mus">Відсоток мусульман</NavLink></li>
             <li><NavLink to="/unaf">Відсоток не афілійованих людей</NavLink></li>
             <li><NavLink to="/ccha">Зміна кількості християн</NavLink></li>
+            <li><NavLink to="/cust">Практична 4</NavLink></li>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>
@@ -49,6 +51,7 @@ function App() {
             <Route path="/mus" component={MuslimsPage}/>
             <Route path="/unaf" component={UnaffiliatedPage}/>
             <Route path="/ccha" component={ChristChange}/>
+            <Route path="/cust" component={CustomComponent}/>
           </div>
         </div>
       </HashRouter>

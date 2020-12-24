@@ -1,5 +1,6 @@
-#chart_holder {
-    display: flex;
+.chart_holder {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 #analysis {
     text-align: center;
@@ -8,4 +9,7 @@
     align-content: center;
     width: 1000px; 
     height: 800px;
+}
+.checker {
+    text-align: center;
 }
