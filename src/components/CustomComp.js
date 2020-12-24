@@ -52,7 +52,11 @@ class CustomComponent extends React.Component{
                 <MapChart setTooltipContent={(content) => this.setState({content:content})} religion={this.state.selected_religion}/>
                 <ReactTooltip>{this.state.content}</ReactTooltip>
                 </div>
+                <div className="checker">
+                    <h5>Графік зміни кількості послідовників певної релігії</h5>
+                    <h6>Числа подано у мільйонах</h6>
                 <MyLineChart religion={this.state.selected_religion}/>
+                </div>
                 </div>
             </div>)
     }
