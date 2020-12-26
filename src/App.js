@@ -6,52 +6,36 @@ import {
 } from "react-router-dom";
 
 import Home from './components/Home';
-import DominantReligion from './components/DominantReligion';
 import {useEffect} from 'react';
 import { csv } from "d3-fetch";
-import ChristChange from './components/ChristChange'
-import MuslimsPage from "./components/Muslims";
-import UnaffiliatedPage from "./components/Unaffiliated";
-import CustomComponent from "./components/CustomComp";
+import PokedexBasic from "./components/PokedexBasic";
+import Legendary from "./components/Legendary";
+import NewLeg from "./components/NewLeg";
 
-let old_keys = ["Year","Country","Christians","Muslims","Unaffiliated","Hindus","Buddhists","Folk Religions","Other Religions","Jews","All Religions"]
 function App() {
   useEffect(() => {
-    csv(process.env.PUBLIC_URL + `/data.csv`).then((data) => {
-      let earray = {}
-      for (let j = 0; j < data.length; j++){
-          let o = data[j];
-          let edata = [];
-        for (let i = 0; i < old_keys.length; i++){
-          edata.push(o[old_keys[i]]);
-        }
-        earray[j] = edata;
-    }
+    csv(process.env.PUBLIC_URL + `/pokedex.csv`).then((data) => {
       if (localStorage.getItem("data") !== null){
         localStorage.clear();
-        localStorage.setItem("data",JSON.stringify(earray));
+        localStorage.setItem("data",JSON.stringify(data));
       }
   });
   });
   return (
     <HashRouter>
         <div>
-          <h1>Візуалізація релігій світу</h1>
+          <h1>Pokemon Visual World</h1>
           <ul className="header">
             <li><NavLink to="/">Домашня сторінка</NavLink></li>
-            <li><NavLink to="/dom">Домінуюча релігія</NavLink></li>
-            <li><NavLink to="/mus">Відсоток мусульман</NavLink></li>
-            <li><NavLink to="/unaf">Відсоток не афілійованих людей</NavLink></li>
-            <li><NavLink to="/ccha">Зміна кількості християн</NavLink></li>
-            <li><NavLink to="/cust">Практична 4</NavLink></li>
+            <li><NavLink to="/pokedex_basic">Pokedex</NavLink></li>
+            <li><NavLink to="/types_compare">Порівняння типів</NavLink></li>
+            <li><NavLink to="/legendary">Легендарність</NavLink></li>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>
-            <Route path="/dom" component={DominantReligion}/>
-            <Route path="/mus" component={MuslimsPage}/>
-            <Route path="/unaf" component={UnaffiliatedPage}/>
-            <Route path="/ccha" component={ChristChange}/>
-            <Route path="/cust" component={CustomComponent}/>
+            <Route path="/pokedex_basic" component={PokedexBasic}/>
+            <Route path="/types_compare" component={Legendary}/>
+            <Route path="/legendary" component={NewLeg}/>
           </div>
         </div>
       </HashRouter>

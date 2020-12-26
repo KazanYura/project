@@ -1,6 +1,10 @@
 .chart_holder {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+.chart_holder_edit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 #analysis {
     text-align: center;
@@ -12,4 +16,31 @@
 }
 .checker {
     text-align: center;
+    margin-bottom: 40px;
+}
+table {
+    border: 1px solid #333;
+}
+td {
+    table-layout:fixed;
+    width:20px;
+    border: 1px solid #333;
+    text-align: center;
+}
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+.effective {
+    background-color: red;
+}
+.netrual {
+    background-color: ivory;
+}
+.zero {
+    background-color: navy;
+}
+.not_eff {
+    background-color: green;
 }
