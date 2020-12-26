@@ -110,7 +110,6 @@ export default class BubbleChart extends PureComponent {
           <h3>
             Характеристика - Захист
           </h3>
-
         <ScatterChart
           width={400}
           height={400}
