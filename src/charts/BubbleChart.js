@@ -61,6 +61,9 @@ export default class BubbleChart extends PureComponent {
         }
       return (
           <div className="chart_holder_edit">
+
+             <div>
+               <h3>Характеристика - Атака</h3>
         <ScatterChart
           width={400}
           height={400}
@@ -79,6 +82,11 @@ export default class BubbleChart extends PureComponent {
             }
           </Scatter>
         </ScatterChart>
+        </div>
+        <div>
+          <h3>
+            Характеристика - Спец. Атака
+          </h3>
         <ScatterChart
           width={400}
           height={400}
@@ -97,6 +105,12 @@ export default class BubbleChart extends PureComponent {
             }
           </Scatter>
         </ScatterChart>
+        </div>
+        <div>
+          <h3>
+            Характеристика - Захист
+          </h3>
+
         <ScatterChart
           width={400}
           height={400}
@@ -115,6 +129,9 @@ export default class BubbleChart extends PureComponent {
             }
           </Scatter>
         </ScatterChart>
+        </div>
+        <div>
+          <h3>Характеристика - Спец. Захист</h3>
         <ScatterChart
           width={400}
           height={400}
@@ -133,6 +150,7 @@ export default class BubbleChart extends PureComponent {
             }
           </Scatter>
         </ScatterChart>
+        </div>
         </div>
       );
     }
