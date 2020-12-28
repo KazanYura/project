@@ -49,7 +49,6 @@ export default class BubbleChart extends PureComponent {
                 }
 
         });
-        console.log(type_to_stats)
         for (let index = 0; index < type_to_stats.length; index++) {
             const element = type_to_stats[index];
             element.spa = (element.spa / element.c);

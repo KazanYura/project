@@ -18,7 +18,6 @@ export default class RadarStats extends PureComponent {
         {field:"Speed",value: parseInt(pokemon["speed"])}];
         let message = "";
         let stats = [parseInt(pokemon["attack"]), parseInt(pokemon["defense"]),parseInt(pokemon["sp_attack"]),parseInt(pokemon["sp_defense"]) ]
-        console.log(stats)
         switch (Math.max(...stats)){
             case parseInt(pokemon["attack"]):
                 message = "Pokemon " + pokemon["name"] + " is physical damager";
@@ -33,7 +32,6 @@ export default class RadarStats extends PureComponent {
                 message = "Pokemon " + pokemon["name"] + " is special tank";
                 break;
         }
-    console.log('Messga' + message)
       return (
           <div>
             <h3>{message}</h3>
