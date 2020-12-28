@@ -18,6 +18,8 @@ function App() {
       if (localStorage.getItem("data") !== null){
         localStorage.clear();
         localStorage.setItem("data",JSON.stringify(data));
+      } else {
+        localStorage.setItem("data",JSON.stringify(data));
       }
   });
   });
