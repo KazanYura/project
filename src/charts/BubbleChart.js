@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Cell,Legend, ZAxis
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Cell, ZAxis
 } from 'recharts';
 const TypeToColor  = {
     "Normal":"#A8A77A",

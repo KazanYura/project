@@ -1,4 +1,3 @@
-import { max } from 'date-fns';
 import React, { PureComponent } from 'react';
 
 import {

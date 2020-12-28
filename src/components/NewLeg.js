@@ -2,7 +2,6 @@ import React from "react";
 import '../style/home.css';
 import BubbleChart from "../charts/LegendBubble";
 import LegendToType from "../charts/LegendToType";
-import { Legend } from "recharts";
 import PseudoLegendToType from "../charts/PseudoLegendToType";
 class NewLeg extends React.Component{
 
